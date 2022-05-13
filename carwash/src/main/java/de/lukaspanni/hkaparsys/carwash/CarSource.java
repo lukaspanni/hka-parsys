@@ -31,7 +31,6 @@ public class CarSource {
         for (int i = 0; i < count; i++) {
             cars.add(new Car(++interiorCounter % interiorInterval == 0));
         }
-        System.out.printf("%d cars created\n", count);
         return cars;
     }
 }
