@@ -2,7 +2,7 @@ package de.lukaspanni.hkaparsys.carwash;
 
 import java.util.UUID;
 
-public class Car extends Thread {
+public class Car {
 
     private final UUID id = UUID.randomUUID();
     private boolean carWashRequested;
@@ -38,19 +38,11 @@ public class Car extends Thread {
         interiorCleaningRequested = false;
     }
 
-    public void arriveAtCarWash(CarWash carWash) {
-        this.carWash = carWash;
-        start();
-    }
 
     public boolean isCarClean() {
         return !carWashRequested && !interiorCleaningRequested;
     }
 
-    @Override
-    public void run() {
-        carWash.washCar(this);
-    }
 
     @Override
     public String toString() {
