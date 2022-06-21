@@ -2,7 +2,7 @@ package de.lukaspanni.hkaparsys.carwash;
 
 import java.util.UUID;
 
-public class Car {
+public class Car implements Comparable<Car> {
 
     private final UUID id = UUID.randomUUID();
     private boolean carWashRequested;
@@ -47,5 +47,10 @@ public class Car {
     @Override
     public String toString() {
         return String.format("Car [%s]", id);
+    }
+
+    @Override
+    public int compareTo(Car o) {
+        return 0;
     }
 }

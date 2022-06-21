@@ -3,11 +3,11 @@ package de.lukaspanni.hkaparsys.carwash;
 import java.util.Arrays;
 
 public class Main {
-    public static final int SLEEP_MULTIPLIER = 1000;
+    public static final int SLEEP_MULTIPLIER = 20;
 
     public static final int ITERATIONS = 10;
 
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) {
 
         int[] times = new int[ITERATIONS];
         for (int i = 0; i < times.length; i++) {
@@ -46,7 +46,6 @@ public class Main {
             }
             timer++;
         }
-        carWash.close();
         return timer;
     }
 
