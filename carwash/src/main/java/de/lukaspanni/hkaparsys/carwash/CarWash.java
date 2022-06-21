@@ -30,5 +30,10 @@ public class CarWash {
     public boolean everyStationFree() {
         return this.carWashStations.stream().allMatch(CarWashStation::isFree);
     }
+
+
+    public void stopAll(){
+        this.carWashStations.forEach(CarWashStation::stopWash);
+    }
 }
 

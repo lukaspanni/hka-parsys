@@ -59,6 +59,5 @@ public class Car implements Comparable<Car> {
             return -1;
         else
             return 0;
-
     }
 }

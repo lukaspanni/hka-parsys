@@ -11,6 +11,7 @@ public abstract class CarWashStation extends Thread{
     protected int duration;
     private boolean occupied = false;
     private final PriorityBlockingQueue<Car> queue;
+    private boolean run = true;
 
     public CarWashStation(PriorityBlockingQueue<Car> queue){
         this.queue = queue;
@@ -19,7 +20,7 @@ public abstract class CarWashStation extends Thread{
     @Override
     public void run() {
         Car car;
-        while(true) {
+        while(run) {
             // no change for "golden customers" here, queue is automatically sorted based on Car.compareTo
             try {
                 car = queue.take();
@@ -71,6 +72,10 @@ public abstract class CarWashStation extends Thread{
     @Override
     public String toString() {
         return String.format("Station (%s) [%s]", this.getClass(), id);
+    }
+
+    public void stopWash(){
+        this.run = false;
     }
 }
 
