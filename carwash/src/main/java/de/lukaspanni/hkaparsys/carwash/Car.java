@@ -7,7 +7,7 @@ public class Car implements Comparable<Car> {
     private final UUID id = UUID.randomUUID();
     private boolean carWashRequested;
     private boolean interiorCleaningRequested;
-    private CarWash carWash;
+    private final boolean isGoldenCustomer;
 
 
     public Car() {
@@ -15,6 +15,7 @@ public class Car implements Comparable<Car> {
     }
 
     public Car(boolean needsInteriorCleaning) {
+        this.isGoldenCustomer = Math.random() < 0.3;
         carWashRequested = true;
         interiorCleaningRequested = needsInteriorCleaning;
         System.out.printf("New %s created, interior cleaning requested: %b\n", this, interiorCleaningRequested);
@@ -51,6 +52,13 @@ public class Car implements Comparable<Car> {
 
     @Override
     public int compareTo(Car o) {
-        return 0;
+        // comparison prefers golden customers
+        if (isGoldenCustomer == o.isGoldenCustomer)
+            return this.id.compareTo(o.id);
+        else if (isGoldenCustomer)
+            return -1;
+        else
+            return 0;
+
     }
 }

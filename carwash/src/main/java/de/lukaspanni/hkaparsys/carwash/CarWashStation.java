@@ -20,6 +20,7 @@ public abstract class CarWashStation extends Thread{
     public void run() {
         Car car;
         while(true) {
+            // no change for "golden customers" here, queue is automatically sorted based on Car.compareTo
             try {
                 car = queue.take();
             }catch (InterruptedException ie){
